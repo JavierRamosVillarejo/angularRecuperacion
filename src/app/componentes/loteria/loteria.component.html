@@ -1,0 +1,14 @@
+<app-generar-loteria #numero1></app-generar-loteria>
+<app-generar-loteria #numero2></app-generar-loteria>
+<div class="container">
+    <div class="card col text-center">
+        <button (click)="numero1.obtenAleatorio(); numero2.obtenAleatorio()">Dame un mnumero aleatorio</button>
+        <br>
+        <h5>{{numero1.digito}} - {{numero2.digito}}</h5>
+        <h2 *ngIf="numero1.digito == numero2.digito">Has Ganado!!</h2>
+        <h2 *ngIf="numero1.digito != numero2.digito">Sigue intentandolo</h2>
+    </div>
+    
+</div>
+
+
