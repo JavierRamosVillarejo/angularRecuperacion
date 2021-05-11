@@ -1,0 +1,14 @@
+<div>
+    <input type="text" name="nombre" id="nombre" placeholder="nombre" [(ngModel)]="user.nombre">
+    <input type="text" name="apellido" id="apellido" placeholder="apellido" [(ngModel)]="user.apellido">
+    <input type="number" name="edad" id="edad" placeholder="edad" [(ngModel)]="user.edad">
+
+    <button (click)="insertar()">Insertar Usuario</button>
+</div>
+<div>
+    <ul>
+        <li *ngFor="let usern of users" (click)="alerta(usern.nombre)">
+            {{usern.nombre}} {{usern.apellido}}, {{usern.edad}} años
+        </li>
+    </ul>
+</div>

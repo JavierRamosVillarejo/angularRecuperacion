@@ -1,0 +1,14 @@
+
+<table class="table"> 
+    <tbody>
+        <tr *ngFor = "let nota of notas">
+            <td>{{nota.id}}</td>
+            <td>{{nota.titulo}}</td>
+            <td>{{nota.contenido}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<input type="text" name="titulo" id="titulo" [(ngModel)]="notaNueva.titulo">
+<input type="text" name="contenido" id="contenido" [(ngModel)]="notaNueva.contenido">
+<button (click)="insertarNota()">Insertar Nota</button>

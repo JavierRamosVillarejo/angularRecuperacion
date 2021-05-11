@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './componentes/about/about.component';
 import { CalculadoraComponent } from './componentes/calculadora/calculadora.component';
+import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
+import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { HolaComponent } from './componentes/hola/hola.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path:"multiplicar/:factor",component:MultiplicarComponent},
   {path:"hola/:nombre/:apellido",component:HolaComponent},
   {path:"estructuras",component:EstructurasComponent},
-
+  {path:"formulario",component:FormularioClaseComponent},
+  {path:"crud-local", component:CrudLocalComponent},
+  
   {path:"**", component: HomeComponent}
 
 ];

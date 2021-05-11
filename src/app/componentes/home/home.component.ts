@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/clases/usuario';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +20,8 @@ export class HomeComponent implements OnInit {
     {nombre: "Sofia", apellido:"Exposito"},
     {nombre: "Javier", apellido:"Ramos"}
   ]
-  
   usuarioSel : any
+
   
   constructor() { }
 

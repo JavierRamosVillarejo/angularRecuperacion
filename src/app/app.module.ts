@@ -13,6 +13,8 @@ import { CalculadoraComponent } from './componentes/calculadora/calculadora.comp
 import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.component';
 import { HolaComponent } from './componentes/hola/hola.component';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
+import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
+import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { EstructurasComponent } from './componentes/estructuras/estructuras.comp
     CalculadoraComponent,
     MultiplicarComponent,
     HolaComponent,
-    EstructurasComponent
+    EstructurasComponent,
+    FormularioClaseComponent,
+    CrudLocalComponent
   ],
   imports: [
     BrowserModule,
