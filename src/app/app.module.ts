@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { AboutComponent } from './componentes/about/about.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavegacionComponent } from './componentes/navegacion/navegacion.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { GenerarLoteriaComponent } from './componentes/generar-loteria/generar-loteria.component';
@@ -15,6 +15,7 @@ import { HolaComponent } from './componentes/hola/hola.component';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,14 @@ import { CrudLocalComponent } from './componentes/crud-local/crud-local.componen
     HolaComponent,
     EstructurasComponent,
     FormularioClaseComponent,
-    CrudLocalComponent
+    CrudLocalComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

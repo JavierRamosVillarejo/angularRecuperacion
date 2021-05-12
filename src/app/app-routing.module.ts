@@ -9,6 +9,7 @@ import { HolaComponent } from './componentes/hola/hola.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 const routes: Routes = [
   {path:"", component: HomeComponent},
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path:"estructuras",component:EstructurasComponent},
   {path:"formulario",component:FormularioClaseComponent},
   {path:"crud-local", component:CrudLocalComponent},
-  
+  {path:"registro", component:RegistroComponent},
   {path:"**", component: HomeComponent}
 
 ];
