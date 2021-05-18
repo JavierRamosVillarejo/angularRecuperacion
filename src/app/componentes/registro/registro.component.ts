@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, MinLengthValidator, Validators } from '@angular/forms';
-import { dniValido } from 'src/app/validaciones/dni-valido';
+import { dniValido, dniValido2 } from 'src/app/validaciones/dni-valido';
+import { telefonoValido } from 'src/app/validaciones/telefono-valido';
 
 @Component({
   selector: 'app-registro',
@@ -28,8 +29,8 @@ export class RegistroComponent implements OnInit {
     apellidos: ['', [Validators.required]],
     password: ['', [Validators.required, Validators.minLength(4)]],
     email: ['', [Validators.required, Validators.email]],
-    dni: ['', [Validators.required,dniValido()]],
-    telefono: [undefined, [Validators.required]] 
+    dni: ['', [Validators.required,dniValido2()]],
+    telefono: [undefined, [Validators.required,telefonoValido()]] 
   })
   //el constructor le asignamos una variable que sea FormBuilder, esta será "fb"
   constructor(private fb:FormBuilder){
@@ -49,5 +50,13 @@ export class RegistroComponent implements OnInit {
       console.log("el formulario no se ha podido verificar");
     }
   }
+  //esto solo vale para El FormRegister
+  //para que valga con el FormBuilder todos los inputs del html deben ser 'class: form-control'
+  get dniN(){return this.formRegister.get("dni")}
+  get tlfN(){return this.formRegister.get("tlf")}
+  get nameN(){return this.formRegister.get("nombre")}
+  
+  
+
 
 }

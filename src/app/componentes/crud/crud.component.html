@@ -1,0 +1,19 @@
+<h3>Con inputs y ngmodel</h3>
+<label for="titulo">Titulo</label><input type="text" name="titulo" [(ngModel)]="nota.titulo">
+<label for="contenido">Contenido</label><input type="text" name="titulo" [(ngModel)]="nota.contenido">
+<button (click)="crearNota(nota)">Insertar</button>
+<br>
+<h3>Formulario con Form Group</h3>
+ <form [formGroup]="formNuevo" (ngSubmit)="crearNota(formNuevo.value)">
+     <input type="text" placeholder="titulo..." formControlName="titulo">
+     <input type="text" placeholder="contenido..." formControlName="contenido">
+     <button type="submit" [disabled]="formNuevo.invalid">Insertar</button>
+     
+ </form>
+<br>
+<ul>
+    <li *ngFor="let no of notas">
+        Titulo:{{no.titulo}} => Contenido:{{no.contenido}}
+    </li>
+</ul>
+

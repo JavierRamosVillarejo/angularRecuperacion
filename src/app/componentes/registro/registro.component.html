@@ -1,4 +1,4 @@
-<form class="form-group" [formGroup]="formRegister2" (submit)="evaluaForm()">
+<form class="form-group" [formGroup]="formRegister" (submit)="evaluaForm()">
     
     <label for="nombre">Nombre</label><input type="text" formControlName="nombre" id="nombre">
     <label for="apellidos">Apellidos</label><input type="text" formControlName="apellidos" id="apellidos">
@@ -12,3 +12,11 @@
     <button type="submit" [disabled]="formRegister.invalid">Registro</button>
 
 </form>
+<!--Aqui empezamos a comprabar errores y mostrarlos por pantalla-->
+{{tlfN.errors | json}}
+{{dniN.errors | json}}
+
+<div class="alert alert-danger" role="alert" *ngIf="nameN.invalid && (nameN.dirty || nameN.touched)">
+        <div *ngIf="nameN.errors.required">El nombre es requerido</div>
+        <div *ngIf="nameN.errors.minlength">ksksksksk</div>    
+</div>
