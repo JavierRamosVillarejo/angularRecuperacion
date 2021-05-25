@@ -27,4 +27,7 @@ export class NotasService {
   editarNota(nota: Note): Observable<any>{
     return this.http.put(url,nota)
   }
+  buscarNotas(entrada: string): Observable<any>{
+    return this.http.get(url+"?busqueda="+entrada)
+  }
 }

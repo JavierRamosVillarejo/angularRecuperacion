@@ -1,19 +1,29 @@
 <h3>Con inputs y ngmodel</h3>
-<label for="titulo">Titulo</label><input type="text" name="titulo" [(ngModel)]="nota.titulo">
-<label for="contenido">Contenido</label><input type="text" name="titulo" [(ngModel)]="nota.contenido">
+<label for="titulo">Titulo</label><input type="text" name="titulo" [(ngModel)]="notaSeleccionada.titulo">
+<label for="contenido">Contenido</label><input type="text" name="titulo" [(ngModel)]="notaSeleccionada.contenido">
 <button (click)="crearNota(nota)">Insertar</button>
+
 <br>
 <h3>Formulario con Form Group</h3>
  <form [formGroup]="formNuevo" (ngSubmit)="crearNota(formNuevo.value)">
      <input type="text" placeholder="titulo..." formControlName="titulo">
      <input type="text" placeholder="contenido..." formControlName="contenido">
-     <button type="submit" [disabled]="formNuevo.invalid">Insertar</button>
-     
+     <button type="submit" [disabled]="formNuevo.invalid">Insertar</button>    
  </form>
 <br>
+<div class="alert alert-primary" role="alert" *ngIf="creada">
+    <strong>Nota creada correctamente</strong>
+</div>
 <ul>
-    <li *ngFor="let no of notas">
-        Titulo:{{no.titulo}} => Contenido:{{no.contenido}}
+    <li *ngFor="let no of notas" (click)="formNuevo.patchValue(no)" ><!--[ngClass]={"..."} -->
+        
+        
+        {{no.titulo}} => {{no.contenido}}
     </li>
 </ul>
+<button (click)="eliminarNota()" *ngIf="formNuevo.value.id">Borrar</button>
+<button (click)="editarNota()" *ngIf="formNuevo.value.id">Editar</button>
+<button (click)="formNuevo.reset()">Cancelar</button>
+<br>
+<input type="text" name="busqueda" id="busqueda" placeholder="busqueda..." [(ngModel)]="busqueda" (input)="buscarConRetraso()">
 

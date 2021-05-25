@@ -1,0 +1,36 @@
+<div class="card">
+  
+        <div class="card-header h5 text-center">
+            Tu Perfil
+        </div>
+        
+    <div class="card-body">
+        <p>{{perfil.nombre}}</p>
+        <p>{{perfil.apellidos}}</p>
+        <p>{{perfil.dni}}</p>
+        <p>{{perfil.email}}</p>
+        <p>{{perfil.telefono}}</p>
+    </div>
+    <button (click)="mostrarEditar=!mostrarEditar">Editar Perfil</button>
+</div>
+<div class="card" *ngIf="mostrarEditar">
+    
+    <div class="card-body">
+        <form class="form-group" [formGroup]="formPerfil" (submit)="editarPerfil()">
+    
+            <label for="nombre">Nombre</label><input type="text" formControlName="nombre" id="nombre">
+            <label for="apellidos">Apellidos</label><input type="text" formControlName="apellidos" id="apellidos">
+            <br> 
+            <label for="password">Contraseña</label><input type="password" formControlName="password" id="password">
+            <label for="repassword">Repite Contraseña</label><input type="password" formControlName="repassword" id="repassword">
+            <label for="email">Email</label><input type="text" formControlName="email" id="email"> 
+            <br>
+            <label for="dni">dni</label><input type="text" formControlName="dni" id="dni">
+            <label for="tlf">Telefono</label><input type="number" formControlName="tlf" id="tlf">
+            <br>
+            <button type="submit" [disabled]="formPerfil.invalid">Editar</button>
+        </form>
+        <button (click) = "eliminarUsuario()">Borrar</button>
+       
+    </div>
+</div>
