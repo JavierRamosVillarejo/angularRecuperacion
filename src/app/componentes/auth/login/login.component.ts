@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     password:['', [Validators.required]],
     email:['', [Validators.required, Validators.email]]
   })
+  mensaje: string=""
 
   constructor(private fb: FormBuilder, private servicioUsuario: UserService, private irHacia: Router) { }
 
@@ -32,7 +33,9 @@ export class LoginComponent implements OnInit {
         this.irHacia.navigate(["/perfil"])
 
       },
-      error => {console.log(error)}
+      error => {
+        console.log(error)
+      this.mensaje= error.error.error }
     )
 
   }

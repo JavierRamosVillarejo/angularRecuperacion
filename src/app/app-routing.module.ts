@@ -12,6 +12,7 @@ import { EstructurasComponent } from './componentes/estructuras/estructuras.comp
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { HolaComponent } from './componentes/hola/hola.component';
 import { HomeComponent } from './componentes/home/home.component';
+import { ListarPerfilesComponent } from './componentes/listar-perfiles/listar-perfiles.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.component';
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:"crud", component:CrudComponent},
   {path:"login", component:LoginComponent},
   {path:"perfil",component:PerfilComponent,canActivate:[UserRouterGuard]},
+  {path:"lista", component:ListarPerfilesComponent},
   {path:"**", component: HomeComponent}
 
 ];

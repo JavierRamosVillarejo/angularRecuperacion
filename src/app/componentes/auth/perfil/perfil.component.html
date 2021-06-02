@@ -1,8 +1,11 @@
 <div class="card">
   
-        <div class="card-header h5 text-center">
+    <div class="card-header h5 text-center">
             Tu Perfil
-        </div>
+    </div>
+    
+        <img class="card-img-top"   >
+        
         
     <div class="card-body">
         <p>{{perfil.nombre}}</p>
@@ -26,11 +29,18 @@
             <label for="email">Email</label><input type="text" formControlName="email" id="email"> 
             <br>
             <label for="dni">dni</label><input type="text" formControlName="dni" id="dni">
-            <label for="tlf">Telefono</label><input type="number" formControlName="tlf" id="tlf">
+            <label for="tlf">Telefono</label><input type="number" formControlName="telefono" id="tlf">
             <br>
             <button type="submit" [disabled]="formPerfil.invalid">Editar</button>
         </form>
         <button (click) = "eliminarUsuario()">Borrar</button>
+        <form [formGroup]="formImage" (submit)="subirImagen()">
+            <input type="file" formControlName = "imagen" (change) = "cambiaImagen($event)">
+            <button (click)="subirImagen()">Subir Imagen</button>
+        </form>
+        <p>Subir imagen por parámetros</p>
+        <input type="file" (change)="tengoFoto($event)">
+        <button type="button" (click)="subirFoto()">SubirImagen por parametros</button>
        
     </div>
 </div>

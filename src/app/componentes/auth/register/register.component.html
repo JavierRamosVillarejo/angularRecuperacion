@@ -1,19 +1,16 @@
-
-
-
-<form class="form-group" [formGroup]="formRegister" (submit)="submit()">
+<form class="card row col-4 text-center form-group" [formGroup]="formRegister" (submit)="submit()">
     
-    <label for="nombre">Nombre</label><input type="text" formControlName="nombre" id="nombre">
-    <label for="apellidos">Apellidos</label><input type="text" formControlName="apellidos" id="apellidos">
+    <label for="nombre">Nombre</label><input type="text" class="form-control" formControlName="nombre" id="nombre">
+    <label for="apellidos">Apellidos</label><input type="text" class="form-control" formControlName="apellidos" id="apellidos">
     <br> 
-    <label for="password">Contraseña</label><input type="password" formControlName="password" id="password">
-    <label for="repassword">Repite Contraseña</label><input type="password" formControlName="repassword" id="repassword">
-    <label for="email">Email</label><input type="text" formControlName="email" id="email"> 
+    <label for="password">Contraseña</label><input type="password" class="form-control" formControlName="password" id="password">
+    <label for="repassword">Repite Contraseña</label><input type="password" class="form-control"  formControlName="repassword" id="repassword">
+    <label for="email">Email</label><input type="text" class="form-control"  formControlName="email" id="email"> 
     <br>
-    <label for="dni">dni</label><input type="text" formControlName="dni" id="dni">
-    <label for="tlf">Telefono</label><input type="number" formControlName="tlf" id="tlf">
+    <label for="dni">dni</label><input type="text" class="form-control"  formControlName="dni" id="dni">
+    <label for="tlf">Telefono</label><input type="number" class="form-control"  formControlName="tlf" id="tlf">
     <br>
-    <button type="submit" [disabled]="formRegister.invalid">Registro</button>
+    <button type="submit" class="form-control"  [disabled]="formRegister.invalid">Registro</button>
 
 </form>
 <!--Aqui empezamos a comprabar errores y mostrarlos por pantalla-->

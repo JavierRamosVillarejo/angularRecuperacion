@@ -28,6 +28,12 @@ editarPerfil(usuario: User):Observable<any>{
 eliminarPerfil(): Observable<any>{
   return this.http.delete(url)
 }
+subirImagen(entrada):Observable<any>{
+  return this.http.post(url + "image/", entrada)
+}
+listarUsuarios():Observable<any>{
+  return this.http.get(url + "list/")
+}
 
 logout():void{
   localStorage.removeItem("userToken")

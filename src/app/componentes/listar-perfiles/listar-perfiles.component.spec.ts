@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthComponent } from './auth.component';
+import { ListarPerfilesComponent } from './listar-perfiles.component';
 
-describe('AuthComponent', () => {
-  let component: AuthComponent;
-  let fixture: ComponentFixture<AuthComponent>;
+describe('ListarPerfilesComponent', () => {
+  let component: ListarPerfilesComponent;
+  let fixture: ComponentFixture<ListarPerfilesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthComponent ]
+      declarations: [ ListarPerfilesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthComponent);
+    fixture = TestBed.createComponent(ListarPerfilesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
