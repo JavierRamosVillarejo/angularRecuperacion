@@ -1,46 +1,84 @@
-<div class="card">
-  
-    <div class="card-header h5 text-center">
-            Tu Perfil
-    </div>
+<div class="row">
+
+    <div class="card col-sm-6">
     
-        <img class="card-img-top"   >
+        <div class="card-header h5 text-center">
+                Tu Perfil
+        </div>
         
+            <img class="card-img-top"   >
+            
+            
+        <div class="card-body">
+            <p>{{perfil.nombre}}</p>
+            <p>{{perfil.apellidos}}</p>
+            <p>{{perfil.dni}}</p>
+            <p>{{perfil.email}}</p>
+            <p>{{perfil.telefono}}</p>
+            <img src="{{perfil.imgSrc? perfil.imgSrc : 'assets/images/dummy.png'}}" width="100px">
+        </div>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal">
+            Editar Perfil
+        </button>
         
-    <div class="card-body">
-        <p>{{perfil.nombre}}</p>
-        <p>{{perfil.apellidos}}</p>
-        <p>{{perfil.dni}}</p>
-        <p>{{perfil.email}}</p>
-        <p>{{perfil.telefono}}</p>
     </div>
-    <button (click)="mostrarEditar=!mostrarEditar">Editar Perfil</button>
-</div>
-<div class="card" *ngIf="mostrarEditar">
     
-    <div class="card-body">
-        <form class="form-group" [formGroup]="formPerfil" (submit)="editarPerfil()">
-    
-            <label for="nombre">Nombre</label><input type="text" formControlName="nombre" id="nombre">
-            <label for="apellidos">Apellidos</label><input type="text" formControlName="apellidos" id="apellidos">
-            <br> 
-            <label for="password">Contraseña</label><input type="password" formControlName="password" id="password">
-            <label for="repassword">Repite Contraseña</label><input type="password" formControlName="repassword" id="repassword">
-            <label for="email">Email</label><input type="text" formControlName="email" id="email"> 
-            <br>
-            <label for="dni">dni</label><input type="text" formControlName="dni" id="dni">
-            <label for="tlf">Telefono</label><input type="number" formControlName="telefono" id="tlf">
-            <br>
-            <button type="submit" [disabled]="formPerfil.invalid">Editar</button>
-        </form>
-        <button (click) = "eliminarUsuario()">Borrar</button>
-        <form [formGroup]="formImage" (submit)="subirImagen()">
-            <input type="file" formControlName = "imagen" (change) = "cambiaImagen($event)">
-            <button (click)="subirImagen()">Subir Imagen</button>
-        </form>
-        <p>Subir imagen por parámetros</p>
-        <input type="file" (change)="tengoFoto($event)">
-        <button type="button" (click)="subirFoto()">SubirImagen por parametros</button>
-       
+    <div class="card col-sm-6" *ngIf="!mostrarEditar">
+        <table *ngFor="let mensaje of mensajes" class="table">
+            <thead>
+                <tr>
+                    <th>Remitente: {{mensaje.nombreRemitente}}</th>
+                    <td>Fecha {{mensaje.fecha}}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">{{mensaje.mensaje}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
+
+    <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">CANCELAR</h4>
+                </div>
+                <div class="modal-body">
+                    <div class=" container card-body " >
+                        <form class="form-group" [formGroup]="formPerfil" (submit)="editarPerfil() " data-dismiss="modal" aria-label="Close">
+                    
+                            <label for="nombre">Nombre</label><input type="text" class="form-control" formControlName="nombre" id="nombre">
+                            <label for="apellidos">Apellidos</label><input type="text" class="form-control" formControlName="apellidos" id="apellidos">
+                            <br> 
+                            <label for="password">Contraseña</label><input type="password" class="form-control" formControlName="password" id="password">
+                            <label for="repassword">Repite Contraseña</label><input type="password" class="form-control" formControlName="repassword" id="repassword">
+                            <label for="email">Email</label><input type="text" class="form-control" formControlName="email" id="email"> 
+                            <br>
+                            <label for="dni">dni</label><input type="text" class="form-control" class="form-control" formControlName="dni" id="dni">
+                            <label for="tlf">Telefono</label><input type="number" class="form-control" formControlName="telefono" id="tlf">
+                            <br>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal" aria-label="Close" [disabled]="formPerfil.invalid">Editar</button>
+                        </form>
+                        <button class="btn btn-danger" (click) = "eliminarUsuario()" data-dismiss="modal" aria-label="Close" >Borrar Usuario</button>
+                        <form [formGroup]="formImage" class="form-group" (submit)="subirImagen()">
+                            <input type="file" class="btn btn-secundary" formControlName = "imagen"  (change) = "cambiaImagen($event)">
+                            <button class="btn btn-success" data-dismiss="modal" aria-label="Close" (click)="subirImagen()">Subir Imagen</button>
+                        </form>
+                        <p>Subir imagen por parámetros</p>
+                        <input type="file" class="btn btn-secundary" (change)="tengoFoto($event)">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close" (click)="subirFoto()">SubirImagen por parametros</button>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </div>

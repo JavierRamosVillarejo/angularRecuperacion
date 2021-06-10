@@ -31,7 +31,7 @@ const routes: Routes = [
   {path:"crud", component:CrudComponent},
   {path:"login", component:LoginComponent},
   {path:"perfil",component:PerfilComponent,canActivate:[UserRouterGuard]},
-  {path:"lista", component:ListarPerfilesComponent},
+  {path:"lista", component:ListarPerfilesComponent,canActivate:[UserRouterGuard]},
   {path:"**", component: HomeComponent}
 
 ];

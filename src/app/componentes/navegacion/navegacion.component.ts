@@ -9,7 +9,7 @@ import { UserService } from 'src/app/servicios/user.service';
 })
 export class NavegacionComponent implements OnInit {
 
-  fnLoged = this.servicioUsuario.isLoged()
+  fnLoged = this.servicioUsuario.isLoged
 
   constructor(private servicioUsuario: UserService, private irHacia: Router) { }
 

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Mensaje } from 'src/app/clases/mensaje';
 import { User } from 'src/app/clases/user';
+import { MensajesService } from 'src/app/servicios/mensajes.service';
 import { UserService } from 'src/app/servicios/user.service';
 import { dniValido2 } from 'src/app/validaciones/dni-valido';
 import { telefonoValido } from 'src/app/validaciones/telefono-valido';
@@ -28,11 +30,14 @@ export class PerfilComponent implements OnInit {
     imagen:["",Validators.required]
   })
   foto: File
+  mensajeerr = ""
+  mensajes: Mensaje []
 
-  constructor(private servicioUsuario: UserService, private fb: FormBuilder, private irHacia: Router) { }
+  constructor(private servicioUsuario: UserService, private fb: FormBuilder, private irHacia: Router, private servicioMensaje: MensajesService) { }
 
   ngOnInit(): void {
     this.cargarPerfil()
+    this.mostrarMensajes()
   }
 
   cargarPerfil():void{
@@ -102,6 +107,22 @@ export class PerfilComponent implements OnInit {
       error => {console.log(error)}
     )
 
+  }
+  mostrarMensajes():void{
+    this.servicioMensaje.obtenerMensajesRecibidos().subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.mensajes=respuesta
+
+      },
+      error => {
+        console.log(error)
+        this.mensajeerr= error.error.error
+      }
+      
+    )
+      
+    
   }
 
 }
