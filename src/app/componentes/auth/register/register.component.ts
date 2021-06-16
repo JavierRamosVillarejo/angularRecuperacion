@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 import { dniValido2 } from 'src/app/validaciones/dni-valido';
 import { telefonoValido } from 'src/app/validaciones/telefono-valido';
@@ -17,10 +18,13 @@ export class RegisterComponent implements OnInit {
     repassword:['',[]],
     email: ['', [Validators.required, Validators.email]],
     dni: ['', [dniValido2()]],
-    telefono: [undefined, [telefonoValido()]] 
+    
   })
 
-  constructor(private fb: FormBuilder, private servicioUsuario: UserService) { }
+  mensajeerr: string=""
+  mensaje: string=""
+
+  constructor(private fb: FormBuilder, private servicioUsuario: UserService, private irHacia: Router) { }
 
   ngOnInit(): void {
   }
@@ -31,17 +35,24 @@ export class RegisterComponent implements OnInit {
         respuesta => {
           console.log(respuesta)
           this.servicioUsuario.guardarToken(respuesta)
+          this.mensaje= "FORMULARIO CORRECTO.  Redirigiendo a Perfil"
+          setTimeout(() => {
+            this.irHacia.navigate(['/perfil'])}
+            , 2000);   
+          
 
         },
-        error => {console.log(error)}
+        error => {
+          console.log(error)
+          this.mensajeerr= error.error.error
+
+        }
       )
 
-    }else alert('Las contraseñas no coinciden')
+    }
 
   }
   
-
-
   get dniN(){return this.formRegister.get("dni")}
   get tlfN(){return this.formRegister.get("tlf")}
   get emailN(){return this.formRegister.get("email")}

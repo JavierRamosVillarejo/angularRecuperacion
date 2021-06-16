@@ -8,7 +8,6 @@
     <label for="email">Email</label><input type="text" class="form-control"  formControlName="email" id="email"> 
     <br>
     <label for="dni">dni</label><input type="text" class="form-control"  formControlName="dni" id="dni">
-    <label for="tlf">Telefono</label><input type="number" class="form-control"  formControlName="tlf" id="tlf">
     <br>
     <button type="submit" class="form-control"  [disabled]="formRegister.invalid">Registro</button>
 
@@ -16,6 +15,9 @@
 <!--Aqui empezamos a comprabar errores y mostrarlos por pantalla-->
 
 
-<div class="alert alert-danger" role="alert" *ngIf="emailN.invalid && (emailN.dirty || emailN.touched)">
-        <div *ngIf="emailN.errors.required">El nombre es requerido</div>  
+<div class="alert alert-danger" role="alert" *ngIf="mensajeerr">
+        <div>{{mensajeerr}}</div>  
+</div>
+<div class="alert alert-success" role="alert" *ngIf="mensaje">
+    <div>{{mensaje}}</div>  
 </div>

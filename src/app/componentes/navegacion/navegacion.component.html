@@ -33,6 +33,7 @@
               
         </ul>
         <ul class="navbar-nav mt-2 mt-lg-0">
+            
             <ng-template [ngIf]="!fnLoged()" [ngIfElse]="salir">
                 <li class="nav-item">
                     <a class="nav-link" routerLink ="/registro" routerLinkActive="active">Registro</a>
@@ -47,6 +48,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" (click)="doLogOut()" routerLink ="." routerLinkActive="active">Logout</a>
+                    
+                </li>
+                <li class="nav-item" *ngIf="fnAdmin()" >
+                    
+                    <a class="nav-link" routerLink ="/roles" routerLinkActive="active">Administrar Usuarios</a>
+                   
                 </li>
             </ng-template>
            
