@@ -1,4 +1,4 @@
-<div class="row">
+<div class="d-flex justify-content-center">
 
     <div class="card col-sm-6">
     
@@ -9,51 +9,33 @@
             <img class="card-img-top"   >
             
             
-        <div class="card-body">
-            <p>{{perfil.nombre}}</p>
-            <p>{{perfil.apellidos}}</p>
-            <p>{{perfil.dni}}</p>
-            <p>{{perfil.email}}</p>
-            <p>{{perfil.telefono}}</p>
+        <div class="card-body text-center">
+            <p>NOMBRE: {{perfil.nombre}}</p>
+            <p>APELLIDOS: {{perfil.apellidos}}</p>
+            <p>DNI: {{perfil.dni}}</p>
+            <p>EMAIL: {{perfil.email}}</p>
+            
             <img src="{{perfil.imgSrc? perfil.imgSrc : 'assets/images/dummy.png'}}" width="100px">
-            
-            <div>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal">
-                    Editar Perfil
-                </button>
-            </div>
-            
         </div>
-        
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editarModal">
+            Editar Perfil
+        </button>
+        <button type="button" class="btn btn-primary btn-lg border-white" data-toggle="modal" data-target="#fotoModal">
+            Cambiar Foto
+        </button>
         
     </div>
     
-    <div class="card col-sm-6" *ngIf="!mostrarEditar">
-        <table *ngFor="let mensaje of mensajes" class="table">
-            <thead>
-                <tr>
-                    <th>Remitente: {{mensaje.nombreRemitente}}</th>
-                    <td>Fecha {{mensaje.fecha}}</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">{{mensaje.mensaje}}</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
 
-    </div>
-
-    <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
+                    
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">CANCELAR</h4>
+                    
                 </div>
                 <div class="modal-body">
                     <div class=" container card-body " >
@@ -71,19 +53,40 @@
                             <br>
                             <button type="submit" class="btn btn-primary" data-dismiss="modal" aria-label="Close" [disabled]="formPerfil.invalid">Editar</button>
                         </form>
+                        
                         <button class="btn btn-danger" (click) = "eliminarUsuario()" data-dismiss="modal" aria-label="Close" >Borrar Usuario</button>
-                        <form [formGroup]="formImage" class="form-group" (submit)="subirImagen()">
-                            <input type="file" class="btn btn-secundary" formControlName = "imagen"  (change) = "cambiaImagen($event)">
-                            <button class="btn btn-success" data-dismiss="modal" aria-label="Close" (click)="subirImagen()">Subir Imagen</button>
-                        </form>
-                        <p>Subir imagen por parámetros</p>
-                        <input type="file" class="btn btn-secundary" (change)="tengoFoto($event)">
-                        <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close" (click)="subirFoto()">SubirImagen por parametros</button>
+                        
                     
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="fotoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    
+                </div>
+                <div class="modal-body">
+                    <div class=" container card-body " >
+                        <form [formGroup]="formImage" class="form-group" (submit)="subirImagen()">
+                            <input type="file" class="btn btn-secundary" formControlName = "imagen"  (change) = "cambiaImagen($event)">
+                            <button class="btn btn-success" data-dismiss="modal" aria-label="Close" (click)="subirImagen()">Subir Imagen</button>
+                        </form>
+                        <p>Subir imagen por parámetros</p>
+                        <input type="file" class="btn btn-secundary" (change)="tengoFoto($event)">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close" (click)="subirFoto()">SubirImagen por parametros</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
     
 </div>

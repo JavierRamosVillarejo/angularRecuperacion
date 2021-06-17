@@ -1,5 +1,5 @@
-<div class="card ">
-  <div class="card-body">
+<div class="d-flex justify-content-between ">
+  <div class="card  w-25 text-left">
     <h4 class="card-title">Estructuras de control con If-Else</h4>
     <div class="card-text">
         <input type="checkbox" [(ngModel)]="verdad">
@@ -34,15 +34,18 @@
       </div>
     </div>
   </div>
-  <div class="card">
+  <div class="card  w-25 text-center">
     <h3>Switch Case Calculadora</h3>
     <label for="num1">Numero 1</label><input id="num1" type="number" [(ngModel)]=num1>
+    
+    <label for="num2">Numero 2</label><input type="number" [(ngModel)]=num2>
+    <hr>
     <select [(ngModel)]="operador">
       <option *ngFor="let operacion of operaciones" [value]="operacion">
         {{operacion}}
       </option>
     </select>
-    <label for="num2">Numero 2</label><input type="number" [(ngModel)]=num2>
+    
     <div [ngSwitch]="operador">
       <span *ngSwitchCase="'suma'"><br><p>{{num1 + num2}}</p></span>
       <span *ngSwitchCase="'resta'"><br><p>{{num1 - num2}}</p></span>
@@ -51,7 +54,7 @@
       <span *ngSwitchDefault><p>Selecciona un operador</p></span>
     </div>
   </div>
-  <div class="card">
+  <div class="card  w-25 text-right">
     <div class="card-body">
       <h4 class="card-title">For avanzado</h4>
       <ul>

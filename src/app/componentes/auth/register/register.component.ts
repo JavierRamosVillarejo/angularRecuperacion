@@ -23,6 +23,8 @@ export class RegisterComponent implements OnInit {
 
   mensajeerr: string=""
   mensaje: string=""
+  cuenta: number= 7
+  
 
   constructor(private fb: FormBuilder, private servicioUsuario: UserService, private irHacia: Router) { }
 
@@ -36,11 +38,9 @@ export class RegisterComponent implements OnInit {
           console.log(respuesta)
           this.servicioUsuario.guardarToken(respuesta)
           this.mensaje= "FORMULARIO CORRECTO.  Redirigiendo a Perfil"
-          setTimeout(() => {
-            this.irHacia.navigate(['/perfil'])}
-            , 2000);   
           
-
+            this.irHacia.navigate(['/perfil'])
+          
         },
         error => {
           console.log(error)
