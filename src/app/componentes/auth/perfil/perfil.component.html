@@ -25,6 +25,53 @@
         </button>
         
     </div>
+    <div class="card col-sm-6">
+        <div class="card-header h5 text-center">
+            Mensajes Recibidos
+        </div>
+        <div class="card-body text-center">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Enviado Por:</th>
+                        <th>Mensaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let mensaje of mensajesRec">
+                        <td>{{mensaje.nombreRemitente}}</td>
+                        <td>{{mensaje.mensaje}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-header h5 text-center">
+            Mensajes Enviados
+        </div>
+        <div class="card-body text-center">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Enviado Por:</th>
+                        <th>Mensaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let mensaje of mensajesEnv">
+                        <td>{{mensaje.nombreDestinatario}}</td>
+                        <td>{{mensaje.mensaje}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+             
+
+        
+    
     
 
     <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -31,13 +31,15 @@ export class PerfilComponent implements OnInit {
   })
   foto: File
   mensajeerr = ""
-  mensajes: Mensaje []
+  mensajesEnv: Mensaje []
+  mensajesRec: Mensaje []
 
   constructor(private servicioUsuario: UserService, private fb: FormBuilder, private irHacia: Router, private servicioMensaje: MensajesService) { }
 
   ngOnInit(): void {
     this.cargarPerfil()
-    this.mostrarMensajes()
+    this.mostrarMensajesEnviados()
+    this.mostrarMensajesRecibidos()
   }
 
   cargarPerfil():void{
@@ -108,11 +110,11 @@ export class PerfilComponent implements OnInit {
     )
 
   }
-  mostrarMensajes():void{
+  mostrarMensajesRecibidos():void{
     this.servicioMensaje.obtenerMensajesRecibidos().subscribe(
       respuesta => {
         console.log(respuesta)
-        this.mensajes=respuesta
+        this.mensajesRec=respuesta
 
       },
       error => {
@@ -123,6 +125,21 @@ export class PerfilComponent implements OnInit {
     )
       
     
+  }
+  mostrarMensajesEnviados():void{
+    this.servicioMensaje.obtenerMensajesEnviados().subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.mensajesEnv=respuesta
+
+      },
+      error => {
+        console.log(error)
+        this.mensajeerr= error.error.error
+      }
+      
+    )
+
   }
 
 }

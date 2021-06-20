@@ -5,4 +5,5 @@ export class Mensaje {
     mensaje?: string
     fecha?: string
     nombreRemitente?: string
+    nombreDestinatario?: string
 }
